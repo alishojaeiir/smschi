@@ -19,7 +19,20 @@
     },
     "autoload": {
         "psr-4": {
-            "Alishojaeiir\\SmsChi\\": "src"
+            "Alishojaeiir\\Smschi\\": "src"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Alishojaeiir\\Smschi\\SmschiServiceProvider"
+            ],
+            "aliases": {
+                "smschi": "Alishojaeiir\\Smschi\\SmschiFacade"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true
     }
 }
