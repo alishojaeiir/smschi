@@ -67,7 +67,7 @@ Alishojaeiir\Smschi\SmschiServiceProvider::class,
 
 b. then run `php artisan vendor:publish` to publish `config/smschi.php` file in your config directory.
 
-In the config file you can set the `default driver` to use for all your payments. But you can also change the driver at runtime.
+In the config file you can set the `default driver` to use for all sending. But you can also change the driver at runtime.
 
 Choose what provider you would like to use in your application. Then make that as default driver so that you don't have to specify that everywhere. But, you can also use multiple providers in a project.
 
