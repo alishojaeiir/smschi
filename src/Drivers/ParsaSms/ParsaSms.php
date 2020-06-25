@@ -1,4 +1,5 @@
 <?php
+
 namespace Alishojaeiir\Smschi\Drivers\ParsaSms;
 
 use Alishojaeiir\Smschi\Drivers\Driver;
@@ -9,14 +10,14 @@ use GuzzleHttp\Client;
 class ParsaSms extends Driver
 {
     /**
-     * Sms
+     * Sms.
      *
      * @var Sms
      */
     protected $sms;
 
     /**
-     * Driver settings
+     * Driver settings.
      *
      * @var object
      */
@@ -35,27 +36,28 @@ class ParsaSms extends Driver
         $this->settings = (object) $settings;
     }
 
-
     /**
      * send sms.
      *
-     * @return string Indicates the sent sms result
      * @throws InvalidSendSmsException
+     *
+     * @return string Indicates the sent sms result
      */
-    public function send() {
+    public function send()
+    {
         $apiUrl = $this->settings->apiUrl;
         $apiKey = $this->settings->apiKey;
         $sender = $this->settings->sender;
 
         try {
             $client = new Client(['http_errors' => false]);
-            $result = $client->post($apiUrl . "send/simple", [
-                'headers' => array('apikey' => $apiKey),
-                'form_params' => array('message' => $this->sms->getContent(), 'sender' => $sender, 'receptor' => $this->sms->getMobile()),
+            $result = $client->post($apiUrl.'send/simple', [
+                'headers'     => ['apikey' => $apiKey],
+                'form_params' => ['message' => $this->sms->getContent(), 'sender' => $sender, 'receptor' => $this->sms->getMobile()],
             ]);
-            
+
             return json_decode($result->getBody()->getContents(), true);
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
             throw new InvalidSendSmsException('Sms does not send');
         }
     }
