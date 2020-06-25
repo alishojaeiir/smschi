@@ -45,6 +45,7 @@ class Smschi
      * Smschi constructor.
      *
      * @param $config
+     *
      * @throws \Exception
      */
     public function __construct($config)
@@ -56,10 +57,11 @@ class Smschi
 
     /**
      * Set custom configs
-     * we can use this method when we want to use dynamic configs
+     * we can use this method when we want to use dynamic configs.
      *
      * @param $key
      * @param $value|null
+     *
      * @return $this
      */
     public function config($key, $value = null)
@@ -81,8 +83,10 @@ class Smschi
      * Set sms mobile number.
      *
      * @param $mobile
-     * @return $this
+     *
      * @throws \Exception
+     *
+     * @return $this
      */
     public function mobile($mobile)
     {
@@ -92,9 +96,10 @@ class Smschi
     }
 
     /**
-     * Set content of sms
+     * Set content of sms.
      *
      * @param $content
+     *
      * @return $this
      */
     public function content($content)
@@ -108,8 +113,10 @@ class Smschi
      * Change the driver on the fly.
      *
      * @param $driver
-     * @return $this
+     *
      * @throws \Exception
+     *
+     * @return $this
      */
     public function via($driver)
     {
@@ -123,6 +130,7 @@ class Smschi
 
     /**
      * @param Sms $sms
+     *
      * @return self
      */
     protected function sms(Sms $sms)
@@ -135,8 +143,9 @@ class Smschi
     /**
      * Retrieve current driver instance or generate new one.
      *
-     * @return mixed
      * @throws \Exception
+     *
+     * @return mixed
      */
     protected function getDriverInstance()
     {
@@ -148,10 +157,11 @@ class Smschi
     }
 
     /**
-     * Get new driver instance
+     * Get new driver instance.
+     *
+     * @throws \Exception
      *
      * @return mixed
-     * @throws \Exception
      */
     protected function getFreshDriverInstance()
     {
@@ -203,29 +213,32 @@ class Smschi
         }
     }
 
-
     /**
-     * Purchase the sms
+     * Purchase the sms.
      *
      * @param Sms $sms|null
-     * @return $this
+     *
      * @throws \Exception
+     *
+     * @return $this
      */
-    public function prepare($mobile,$message)
+    public function prepare($mobile, $message)
     {
-        if ($mobile AND $message) {
+        if ($mobile and $message) {
             $this->sms->mobile($mobile);
             $this->sms->content($message);
         }
         $this->driverInstance = $this->getFreshDriverInstance();
+
         return $this;
     }
 
     /**
      * send the sms.
      *
-     * @return mixed
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function send()
     {
