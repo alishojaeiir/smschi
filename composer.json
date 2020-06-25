@@ -1,0 +1,25 @@
+{
+    "name": "alishojaeiir/smschi",
+    "description": "simple laravel package to sending sms  , supports multiple drivers",
+    "authors": [
+        {
+            "name": "ali shojaei",
+            "email": "alishojaei34@gmail.com",
+            "homepage": "https://github.com/alishojaeiir",
+            "role": "Developer"
+        }
+    ],
+    "homepage": "https://github.com/alishojaeiir/smschi",
+    "license": "MIT",
+    "require": {
+        "php": ">=7.2",
+        "illuminate/broadcasting": "^5.8|^6.0|^7.0",
+        "illuminate/support": "^5.8|^6.0|^7.0",
+        "guzzlehttp/guzzle": ">=6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Alishojaeiir\\SmsChi\\": "src"
+        }
+    }
+}
