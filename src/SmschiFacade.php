@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: alishojaei
  * Date: 2020-03-02
- * Time: 17:30
+ * Time: 17:30.
  */
 
 namespace Alishojaeiir\Smschi;

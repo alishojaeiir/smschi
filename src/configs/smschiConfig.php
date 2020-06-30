@@ -24,9 +24,9 @@ return [
     */
     'drivers' => [
         'parsasms' => [
-            'apiUrl' => "http://api.smsapp.ir/v2/sms/",
-            'apiKey' => "api_key",
-            'sender' => "sender number",
+            'apiUrl' => 'http://api.smsapp.ir/v2/sms/',
+            'apiKey' => 'api_key',
+            'sender' => 'sender number',
         ],
     ],
 
@@ -44,6 +44,6 @@ return [
     */
     'map' => [
         'asanpardakht' => \Alishojaeiir\Smschi\Drivers\ParsaSms\ParsaSms::class,
-        
-    ]
+
+    ],
 ];

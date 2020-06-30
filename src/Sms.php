@@ -2,26 +2,24 @@
 
 namespace Alishojaeiir\Smschi;
 
-
 class Sms
 {
-
     /**
-     * Mobile
+     * Mobile.
      *
      * @var string
      */
     protected $mobile;
 
     /**
-     * Sms's content
+     * Sms's content.
      *
      * @var string
      */
     protected $content;
 
     /**
-     * Sms's sendDate
+     * Sms's sendDate.
      *
      * @var DateTime
      */
@@ -35,16 +33,16 @@ class Sms
     /**
      * Sms constructor.
      */
-    public function __construct(){}
-
+    public function __construct()
+    {
+    }
 
     /**
-     * Set the mobile of Sms
+     * Set the mobile of Sms.
      *
      * @param $mobile
      *
      * @return $this
-     *
      */
     public function mobile($mobile)
     {
@@ -54,7 +52,7 @@ class Sms
     }
 
     /**
-     * Get the mobile of Sms
+     * Get the mobile of Sms.
      *
      * @return int
      */
@@ -63,15 +61,12 @@ class Sms
         return $this->mobile;
     }
 
-
-
     /**
-     * Set the sendDate of Sms
+     * Set the sendDate of Sms.
      *
      * @param $sendDate
      *
      * @return $this
-     *
      */
     public function sendDate($sendDate)
     {
@@ -81,7 +76,7 @@ class Sms
     }
 
     /**
-     * Get the sendDate of Sms
+     * Get the sendDate of Sms.
      *
      * @return DateTime
      */
@@ -91,7 +86,7 @@ class Sms
     }
 
     /**
-     * set content of Sms
+     * set content of Sms.
      *
      * @param $content
      *
@@ -105,7 +100,7 @@ class Sms
     }
 
     /**
-     * Get the content of Sms
+     * Get the content of Sms.
      *
      * @return string
      */
@@ -115,7 +110,7 @@ class Sms
     }
 
     /**
-     * Set the value of driver
+     * Set the value of driver.
      *
      * @param $driver
      *
@@ -129,7 +124,7 @@ class Sms
     }
 
     /**
-     * Get the value of driver
+     * Get the value of driver.
      *
      * @return string
      */
