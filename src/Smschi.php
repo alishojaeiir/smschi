@@ -157,11 +157,6 @@ class Smschi
     {
         $this->validateDriver();
         $class = $this->config['map'][$this->driver];
-
-        if (!empty($this->callbackUrl)) { // use custom callbackUrl if exists
-            $this->settings['callbackUrl'] = $this->callbackUrl;
-        }
-
         return new $class($this->sms, $this->settings);
     }
 
