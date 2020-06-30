@@ -167,6 +167,7 @@ class Smschi
     {
         $this->validateDriver();
         $class = $this->config['map'][$this->driver];
+
         return new $class($this->sms, $this->settings);
     }
 
