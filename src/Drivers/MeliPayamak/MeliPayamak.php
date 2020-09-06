@@ -33,6 +33,14 @@ class MeliPayamak extends Driver
             throw new InvalidSendSmsException('Sms does not send');
         }
     }
+
+    /**
+     * @param this is used to shared Service SMS
+     * (استفاده از خط خدماتی اشتراکی)
+     *
+     * @return array
+     * @throws \AliShojaeiir\Smschi\Exceptions\InvalidSendSmsException
+     */
     public function sendSharedService($bodyId){
         $url = $this->settings->apiUrl.'/BaseServiceNumber';
         $username = $this->settings->username;
