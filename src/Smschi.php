@@ -230,14 +230,15 @@ class Smschi
         return $this;
     }
 
-
     /**
-     * call method from drivers (exp:send)
+     * call method from drivers (exp:send).
+     *
      * @param $method
      * @param $arguments
      *
-     * @return mixed
      * @throws \Alishojaeiir\Smschi\Exceptions\SmsNotFoundException
+     *
+     * @return mixed
      */
     public function __call($method, $arguments)
     {
@@ -246,8 +247,8 @@ class Smschi
         $this->validateSms();
         if (method_exists($this->driverInstance, $method)) {
             return $this->driverInstance->$method($arguments);
-        }else{
-            throw new MethodNotFoundException("'$method' not exists",$this->driverInstance,$method);
+        } else {
+            throw new MethodNotFoundException("'$method' not exists", $this->driverInstance, $method);
         }
     }
 }

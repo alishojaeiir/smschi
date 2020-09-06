@@ -29,11 +29,11 @@ return [
             'sender' => 'sender number',
         ],
         'melipayamak' => [
-            'apiUrl' => 'https://rest.payamak-panel.com/api/SendSMS',
+            'apiUrl'   => 'https://rest.payamak-panel.com/api/SendSMS',
             'username' => '',
             'password' => '',
-            'sender' => '',
-        ]
+            'sender'   => '',
+        ],
     ],
 
     /*
@@ -49,7 +49,7 @@ return [
     |
     */
     'map' => [
-        'parsasms' => \Alishojaeiir\Smschi\Drivers\ParsaSms\ParsaSms::class,
+        'parsasms'    => \Alishojaeiir\Smschi\Drivers\ParsaSms\ParsaSms::class,
         'melipayamak' => \Alishojaeiir\Smschi\Drivers\MeliPayamak\MeliPayamak::class,
 
     ],
