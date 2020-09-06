@@ -9,32 +9,6 @@ use GuzzleHttp\Client;
 
 class ParsaSms extends Driver
 {
-    /**
-     * Sms.
-     *
-     * @var Sms
-     */
-    protected $sms;
-
-    /**
-     * Driver settings.
-     *
-     * @var object
-     */
-    protected $settings;
-
-    /**
-     * ParsaSms constructor.
-     * Construct the class with the relevant settings.
-     *
-     * @param Sms $sms
-     * @param $settings
-     */
-    public function __construct(Sms $sms, $settings)
-    {
-        $this->sms = $sms;
-        $this->settings = (object) $settings;
-    }
 
     /**
      * send sms.

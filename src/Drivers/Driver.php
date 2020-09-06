@@ -26,7 +26,11 @@ abstract class Driver implements DriverInterface
      * @param Sms $sms
      * @param $settings
      */
-    abstract public function __construct(Sms $sms, $settings);
+    public function __construct(Sms $sms, $settings)
+    {
+        $this->sms = $sms;
+        $this->settings = (object) $settings;
+    }
 
     /**
      * Send the Sms.

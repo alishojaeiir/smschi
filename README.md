@@ -27,6 +27,7 @@ This is a Laravel Package for Sending sms. This package supports `Laravel 5.8+`.
 # List of available drivers
 
 * [parsasms](http://parsasms.com/)
+* [melipayamak (with sendSharedService method to use SharedSerivce)](https://www.melipayamak.com/)
 
 
 ## Install
