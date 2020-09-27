@@ -22,10 +22,11 @@ class MeliPayamak extends Driver
         $username = $this->settings->username;
         $password = $this->settings->password;
         $sender = $this->settings->sender;
+
         try {
             $client = new Client(['http_errors' => false]);
             $result = $client->post($url, [
-                'form_params' => ['username'=>$username,'password'=>$password,'text' => $this->sms->getContent(), 'from' => $sender, 'to' => $this->sms->getMobile()],
+                'form_params' => ['username'=>$username, 'password'=>$password, 'text' => $this->sms->getContent(), 'from' => $sender, 'to' => $this->sms->getMobile()],
             ]);
 
             return json_decode($result->getBody()->getContents(), true);
@@ -38,13 +39,16 @@ class MeliPayamak extends Driver
      * @param this is used to shared Service SMS
      * (استفاده از خط خدماتی اشتراکی)
      *
-     * @return array
      * @throws \AliShojaeiir\Smschi\Exceptions\InvalidSendSmsException
+     *
+     * @return array
      */
-    public function sendSharedService($bodyId){
+    public function sendSharedService($bodyId)
+    {
         $url = $this->settings->apiUrl.'/BaseServiceNumber';
         $username = $this->settings->username;
         $password = $this->settings->password;
+
         try {
             $client = new Client(['http_errors' => false]);
             $result = $client->post($url, [
