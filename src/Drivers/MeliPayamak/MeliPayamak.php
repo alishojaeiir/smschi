@@ -48,7 +48,7 @@ class MeliPayamak extends Driver
         try {
             $client = new Client(['http_errors' => false]);
             $result = $client->post($url, [
-                'form_params' => ['username'=>$username,'password'=>$password,'text' => $this->sms->getContent(), 'to' => $this->sms->getMobile(),'bodyId'=>$bodyId],
+                'form_params' => ['username'=>$username,'password'=>$password,'text' => $this->sms->getContent(), 'to' => $this->sms->getMobile(),'bodyId'=>$bodyId[0]],
             ]);
 
             return json_decode($result->getBody()->getContents(), true);
