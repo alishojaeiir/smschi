@@ -34,6 +34,10 @@ return [
             'password' => '',
             'sender'   => '',
         ],
+        'kavenegar' => [
+            'apiUrl'  => 'https://api.kavenegar.com/v1/',
+            'apiKey'  => 'YOUR_API_KEY',
+        ]
     ],
 
     /*
@@ -50,7 +54,7 @@ return [
     */
     'map' => [
         'parsasms'    => \Alishojaeiir\Smschi\Drivers\ParsaSms\ParsaSms::class,
-        'melipayamak' => \Alishojaeiir\Smschi\Drivers\MeliPayamak\MeliPayamak::class,
+        'melipayamak' => \Alishojaeiir\Smschi\Drivers\MeliPayamak\Kavenegar::class,
 
     ],
 ];

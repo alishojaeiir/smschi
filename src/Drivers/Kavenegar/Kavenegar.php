@@ -1,6 +1,6 @@
 <?php
 
-namespace Alishojaeiir\Smschi\Drivers\MeliPayamak;
+namespace Alishojaeiir\Smschi\Drivers\Kavenegar;
 
 use Alishojaeiir\Smschi\Drivers\Driver;
 use AliShojaeiir\Smschi\Exceptions\InvalidSendSmsException;
@@ -8,7 +8,7 @@ use Alishojaeiir\Smschi\Sms;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 
-class MeliPayamak extends Driver
+class Kavenegar extends Driver
 {
     /**
      * send sms.
@@ -20,15 +20,12 @@ class MeliPayamak extends Driver
      */
     public function send()
     {
-        $url = $this->settings->apiUrl.'/SendSMS';
-        $username = $this->settings->username;
-        $password = $this->settings->password;
-        $sender = $this->settings->sender;
+        $url = $this->settings->apiUrl.$this->settings->apiKey.'/sms/send.json';
 
         try {
             $client = new Client(['http_errors' => false]);
             $result = $client->post($url, [
-                'form_params' => ['username'=>$username, 'password'=>$password, 'text' => $this->sms->getContent(), 'from' => $sender, 'to' => $this->sms->getMobile()],
+                'form_params' => ['text' => $this->sms->getContent(), 'to' => $this->sms->getMobile()],
             ]);
 
             return json_decode($result->getBody()->getContents(), true);
@@ -47,17 +44,22 @@ class MeliPayamak extends Driver
      */
     public function sendSharedService($bodyId)
     {
-        $url = $this->settings->apiUrl.'/BaseServiceNumber';
-        $username = $this->settings->username;
-        $password = $this->settings->password;
+        $url = $this->settings->apiUrl.$this->settings->apiKey.'/verify/lookup.json';
 
         try {
             $client = new Client(['http_errors' => false]);
             $result = $client->post($url, [
-                'form_params' => ['username'=>$username, 'password'=>$password, 'text' => $this->sms->getContent(), 'to' => $this->sms->getMobile(), 'bodyId'=>$bodyId[0]],
+                'form_params' => [
+                    'token' => $this->sms->getContent(),
+                    'receptor' => $this->sms->getMobile(),
+                    'template' => $bodyId[0]
+                ],
             ]);
-
-            return json_decode($result->getBody()->getContents(), true);
+            $result = json_decode($result->getBody()->getContents(), true);
+            if (isset($result['result']['status']) && $result['result']['status'] == 200) {
+                return $result;
+            }
+            throw new InvalidSendSmsException($result['result']['message']);
         } catch (\Exception $e) {
             throw new InvalidSendSmsException('Sms does not send');
         }
