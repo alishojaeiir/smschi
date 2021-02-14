@@ -6,7 +6,6 @@ use Alishojaeiir\Smschi\Drivers\Driver;
 use AliShojaeiir\Smschi\Exceptions\InvalidSendSmsException;
 use Alishojaeiir\Smschi\Sms;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
 
 class Kavenegar extends Driver
 {
@@ -50,15 +49,16 @@ class Kavenegar extends Driver
             $client = new Client(['http_errors' => false]);
             $result = $client->post($url, [
                 'form_params' => [
-                    'token' => $this->sms->getContent(),
+                    'token'    => $this->sms->getContent(),
                     'receptor' => $this->sms->getMobile(),
-                    'template' => $bodyId[0]
+                    'template' => $bodyId[0],
                 ],
             ]);
             $result = json_decode($result->getBody()->getContents(), true);
             if (isset($result['result']['status']) && $result['result']['status'] == 200) {
                 return $result;
             }
+
             throw new InvalidSendSmsException($result['result']['message']);
         } catch (\Exception $e) {
             throw new InvalidSendSmsException('Sms does not send');
