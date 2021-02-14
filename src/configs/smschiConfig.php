@@ -10,7 +10,7 @@ return [
     | You can switch to a different driver at runtime.
     |
     */
-    'default' => 'parsasms',
+    'default' => 'kavenegar',
 
     /*
     |--------------------------------------------------------------------------
@@ -54,7 +54,8 @@ return [
     */
     'map' => [
         'parsasms'    => \Alishojaeiir\Smschi\Drivers\ParsaSms\ParsaSms::class,
-        'melipayamak' => \Alishojaeiir\Smschi\Drivers\MeliPayamak\Kavenegar::class,
+        'melipayamak' => \Alishojaeiir\Smschi\Drivers\MeliPayamak\MeliPayamak::class,
+        'kavenegar' => \Alishojaeiir\Smschi\Drivers\Kavenegar\Kavenegar::class,
 
     ],
 ];
