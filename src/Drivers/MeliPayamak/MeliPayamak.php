@@ -6,7 +6,6 @@ use Alishojaeiir\Smschi\Drivers\Driver;
 use AliShojaeiir\Smschi\Exceptions\InvalidSendSmsException;
 use Alishojaeiir\Smschi\Sms;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
 
 class MeliPayamak extends Driver
 {
