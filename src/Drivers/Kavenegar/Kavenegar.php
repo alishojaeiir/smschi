@@ -35,12 +35,13 @@ class Kavenegar extends Driver
     }
 
     /**
-     * @param this is used to shared Service SMS
+     * used to shared Service SMS
      * (استفاده از خط خدماتی اشتراکی)
      *
-     * @throws \AliShojaeiir\Smschi\Exceptions\InvalidSendSmsException
-     *
-     * @return array
+     * @param $bodyId
+     * @return mixed|\Psr\Http\Message\ResponseInterface
+     * @throws \Exception
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function sendSharedService($bodyId)
     {
@@ -59,9 +60,9 @@ class Kavenegar extends Driver
             if (isset($result['result']['status']) && $result['result']['status'] == 200) {
                 return $result;
             }
-            throw new InvalidSendSmsException($result['result']['message']);
+            throw new \Exception($result['result']['message']);
         } catch (\Exception $e) {
-            throw new InvalidSendSmsException('Sms does not send');
+            throw new \Exception('Sms does not send');
         }
     }
 }
